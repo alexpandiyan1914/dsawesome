@@ -53,6 +53,45 @@ public class  SinglyLinkedList {
             temp.next = newNode;
         }
     }
+    public void dltAtBeg(){
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+        head = head.next;
+    }
+
+    public void dltAtPos(int data){
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+
+        if(head.data == data){
+            head = head.next;
+            return;
+        }
+
+        Node temp = head;
+        while(temp.next != null && temp.next.data != data){
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
+    }
+
+    public void dltAtEnd(){
+        if(head == null){
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp  = head;
+        while(temp.next.next != null ){
+            temp = temp.next;
+        }
+        temp.next = null;
+
+    }
 
     public void display(){
         if(head == null){
@@ -95,6 +134,20 @@ public class  SinglyLinkedList {
                     list.insertAtPos(data,pos);
                     break;
                 case 4:
+                    System.out.println("Node dlted at beginning!");
+                    list.dltAtBeg();
+                    break;
+                case 5:
+                    System.out.print("Enter the val to be deleted:");
+                    data = sc.nextInt();
+                    list.dltAtPos(data);
+                    System.out.println("val deleted!!");
+                    break;
+                case 6:
+                    System.out.println("Node dlted at end!");
+                    list.dltAtEnd();
+                    break;
+                case 7:
                     list.display();
                     break;
                 default:
