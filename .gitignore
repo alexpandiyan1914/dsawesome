@@ -1,0 +1,14 @@
+# Ignore compiled class files
+*.class
+
+# Ignore IntelliJ output directories
+/out/
+/build/
+
+# Ignore IntelliJ project files (optional)
+*.iml
+.idea/
+
+# Ignore logs and temporary files (optional)
+*.log
+    
