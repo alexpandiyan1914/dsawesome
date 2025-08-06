@@ -62,6 +62,5 @@ public class ReverseLinkedList {
         rr.reverse();
         System.out.println("\nReversed LinkedList:");
         rr.display();
-
     }
 }
