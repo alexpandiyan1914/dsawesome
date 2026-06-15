@@ -1,4 +1,4 @@
-public class ReverseLinkedList {
+public class MidNode {
     Node head;
 
     class Node{
@@ -25,39 +25,36 @@ public class ReverseLinkedList {
         }
     }
 
-    public void reverse(){
-        Node curr = head;
-        Node prev = null;
-        Node next;
-        while(curr != null){
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-        head = prev;
-    }
+    public void FindMid(Node head){
+        int len = 0;
 
-    public void display(){
-        Node temp  = head;
+        Node temp = head;
+        
         while(temp != null){
-            System.out.print(temp.data +" -> ");
+            len++;
             temp = temp.next;
         }
-        System.out.print("null");
+
+        int mid = len / 2;
+
+        while(mid > 0){
+            head = head.next;
+            mid--;
+        }
+
+        return head.data;
+        
     }
 
+
     public static void main(String[] args){
-        ReverseLinkedList rr = new ReverseLinkedList();
+        MidNode rr = new MidNode();
 
         rr.insert(5);
         rr.insert(10);
         rr.insert(15);
         rr.insert(20);
-        System.out.println("LinkedList:");
-        rr.display();
-        rr.reverse();
-        System.out.println("\nReversed LinkedList:");
-        rr.display();
+        
+        rr.FindMid();
     }
 }
