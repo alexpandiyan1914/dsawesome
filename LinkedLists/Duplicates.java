@@ -1,4 +1,4 @@
-public class Rem {
+public class Duplicates {
     Node head;
 
     class Node{
@@ -25,56 +25,45 @@ public class Rem {
         }
     }
 
-    public void remove(int n){
-        int len = 0;
-
+    public void duplicates(){
         Node temp = head;
-        while(temp != null){
-            len++;
+
+        while(temp != null && temp.next != null){
+            if(temp.data == temp.next.data){
+                temp.next = temp.next.next;
+            }else{
+                
             temp = temp.next;
-        }
 
-        int pos = len - (n+1);
+            }
 
-        
-
-        temp = head;
-
-        while(temp.next != null && pos != n ){
-            temp = temp.next;
-        }
-
-        temp.next = temp.next.next;
-
+        }    
     }
 
     public void display(){
-        if(head == null){
-            System.out.println("List is Empty");
-            return;
-        }
-
-        Node temp = head;
+        Node temp  = head;
         while(temp != null){
-            System.out.print(temp.data+" -> ");
+            System.out.print(temp.data +" -> ");
             temp = temp.next;
         }
-        System.out.println("null");
+        System.out.print("null");
     }
 
-    
-
     public static void main(String[] args){
-        Rem rr = new Rem();
+        Duplicates rr = new Duplicates();
 
         rr.insert(5);
         rr.insert(10);
+        rr.insert(10);
+        rr.insert(15);
+        rr.insert(15);
         rr.insert(15);
         rr.insert(20);
-        rr.insert(25);
-
-        rr.remove(2);
+        rr.insert(20);
+        System.out.println("LinkedList:");
         rr.display();
- 
+        rr.duplicates();
+        System.out.println("\n without duplicate:");
+        rr.display();
     }
 }
